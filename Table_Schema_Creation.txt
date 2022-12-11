@@ -1,0 +1,44 @@
+There are 4 tables
+
+1) Table products
+
+CREATE TABLE `products` (
+   `Product_Id` int NOT NULL AUTO_INCREMENT,
+   `Product_Name` varchar(45) DEFAULT NULL,
+   `Price` double DEFAULT NULL,
+   `Brand` varchar(45) DEFAULT NULL,
+   PRIMARY KEY (`Product_Id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+2)Table customers
+
+CREATE TABLE `customers` (
+   `User_Id` int NOT NULL AUTO_INCREMENT,
+   `User_Name` varchar(45) DEFAULT NULL,
+   PRIMARY KEY (`User_Id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+3)Table orders
+
+CREATE TABLE `orders` (
+   `Order_Id` int NOT NULL AUTO_INCREMENT,
+   `Quantity` int NOT NULL,
+   `Product_Id` int NOT NULL,
+   `User_Id` int NOT NULL,
+   PRIMARY KEY (`Order_Id`),
+   KEY `FK_Product_Id_idx` (`Product_Id`),
+   KEY `FK_User_Id_idx` (`User_Id`),
+   CONSTRAINT `FK_Product_Id` FOREIGN KEY (`Product_Id`) REFERENCES `products` (`Product_Id`),
+   CONSTRAINT `FK_User_Id` FOREIGN KEY (`User_Id`) REFERENCES `customers` (`User_Id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+4)Table stock_units
+
+CREATE TABLE `stock_units` (
+   `Stock_Id` int NOT NULL AUTO_INCREMENT,
+   `Stock_Quantity` int NOT NULL,
+   `Product_Id` int NOT NULL,
+   PRIMARY KEY (`Stock_Id`),
+   KEY `Fk_Product_Id_idx` (`Product_Id`),
+   CONSTRAINT `FK_SKU_Product_Id` FOREIGN KEY (`Product_Id`) REFERENCES `products` (`Product_Id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
