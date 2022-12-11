@@ -14,7 +14,7 @@ import com.demo.shopping.entity.Order;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 	
-    @Transactional
+        @Transactional
 	public void deleteByOrderId(Integer orderId);
 	
 	public List<Order> findByCustomer(Customer customer);
