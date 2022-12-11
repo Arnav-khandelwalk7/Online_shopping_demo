@@ -42,37 +42,37 @@ public class Controller {
 	    @GetMapping("/getAllProducts")
 	    public List<Product> getAllProds()
 	    {
-			return prodRepo.findAll();
+	        return prodRepo.findAll();
 	    }
 
 	 
 	    @PostMapping("/addOrder")
 	    public String addOrder(@RequestBody RequestOrderDTO reqOrder ) throws Exception
-		{
-			Order order = new Order();
+	    {
+	        Order order = new Order();
 	    
-			if(isNull(reqOrder.getProductId()) || isNull(reqOrder.getQuantity()) || isNull(reqOrder.getUserId()))
-				return "Any field of order cannot be null except ID";
+		if(isNull(reqOrder.getProductId()) || isNull(reqOrder.getQuantity()) || isNull(reqOrder.getUserId()))
+			return "Any field of order cannot be null except ID";
 		    
-	        //order.setOrderId(reqOrder.getOrderId());
+	         //order.setOrderId(reqOrder.getOrderId());
 	    
-			order.setQuantity(reqOrder.getQuantity());
+		 order.setQuantity(reqOrder.getQuantity());
 	    	
-	        Product product = prodRepo.findByProductId(reqOrder.getProductId());
-	        order.setProduct(product);
+	         Product product = prodRepo.findByProductId(reqOrder.getProductId());
+	         order.setProduct(product);
 	    	
-	        Customer customer = customRepo.findByUserId(reqOrder.getUserId());
-	        order.setCustomer(customer);
+	         Customer customer = customRepo.findByUserId(reqOrder.getUserId());
+	         order.setCustomer(customer);
 	    	
-	        orderRepo.save(order);
-	        return "Order Successfully Placed!";
+	         orderRepo.save(order);
+	         return "Order Successfully Placed!";
 	    }
 	 
 	 
 	    @PostMapping("/deleteOrder/{oid}")
 	    public String getAllOrders(@PathVariable("oid") Integer orderId)
 	    {
-			orderRepo.deleteByOrderId(orderId);
+	        orderRepo.deleteByOrderId(orderId);
 	        return "Deleted order "+ orderId +" successfully!";
 	    }
 	 
@@ -80,44 +80,44 @@ public class Controller {
 	    @GetMapping("/findByCustomer")
 	    public List<Order> addOrder(@NotNull @RequestBody  Customer customer )  throws Exception
 	    {
-			return orderRepo.findByCustomer(customer);
+		return orderRepo.findByCustomer(customer);
 	    }
 	 
 	 
 	    @PostMapping("/updateSKU")
 	    public String updateSKU(@RequestBody ProductQuantity productQuantity )
 	    {	
-			ProductQuantity productQuantityUse = new ProductQuantity();
+		ProductQuantity productQuantityUse = new ProductQuantity();
 	    	
-			if(isNull(productQuantity.getProductId()) || isNull(productQuantity.getQuantity()))
-				return "Product ID or Quantity cannot be null";
+		if(isNull(productQuantity.getProductId()) || isNull(productQuantity.getQuantity()))
+			return "Product ID or Quantity cannot be null";
 	    
-			if(productQuantity.getStockId() == null){
-				productQuantityUse.setProductId(productQuantity.getProductId());
-				productQuantityUse.setQuantity(productQuantity.getQuantity());
-				prodQuantRepo.save(productQuantityUse);
+		if(productQuantity.getStockId() == null){
+			productQuantityUse.setProductId(productQuantity.getProductId());
+			productQuantityUse.setQuantity(productQuantity.getQuantity());
+			prodQuantRepo.save(productQuantityUse);
 			}
 			else{
-				productQuantityUse = prodQuantRepo.findByStockId(productQuantity.getStockId());
-				productQuantityUse.setQuantity(productQuantity.getQuantity());
-				prodQuantRepo.save(productQuantityUse);
+			productQuantityUse = prodQuantRepo.findByStockId(productQuantity.getStockId());
+			productQuantityUse.setQuantity(productQuantity.getQuantity());
+			prodQuantRepo.save(productQuantityUse);
 			}
 				 
-			return "Successfully Update SKU" ;
+		return "Successfully Update SKU" ;
 	    }
 	 
 	 
 	    @GetMapping("/searchProducts")
 	    public List<Product> productSearch(@RequestBody ProductRequestDTO prodReqDTO )
 	    {		    	 
-			return prodRepo.findProductByProductIdAndProductNameAndPriceAndBrand(prodReqDTO.getProductId(),prodReqDTO.getProductName(),prodReqDTO.getPrice(),prodReqDTO.getBrand());
+		return prodRepo.findProductByProductIdAndProductNameAndPriceAndBrand(prodReqDTO.getProductId(),prodReqDTO.getProductName(),prodReqDTO.getPrice(),prodReqDTO.getBrand());
 	    }
 	 	
 	 
-		static boolean isNull(Integer integer)
-		{
-			if (integer == null)
-				return true;
-			return false;
-		}
+	    static boolean isNull(Integer integer)
+	    {
+		if (integer == null)
+			return true;
+		return false;
+	    }
 }
