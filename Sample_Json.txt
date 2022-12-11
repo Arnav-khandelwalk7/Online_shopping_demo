@@ -1,0 +1,401 @@
+Sample Requet-response Json
+
+/getAllProducts
+
+Response:
+[
+    {
+        "productId": 1,
+        "productName": "Applesauce",
+        "price": 20.0,
+        "brand": "Catch",
+        "productQuantity": [
+            {
+                "stockId": 1,
+                "quantity": 11,
+                "productId": 1
+            },
+            {
+                "stockId": 2,
+                "quantity": 2,
+                "productId": 1
+            },
+            {
+                "stockId": 3,
+                "quantity": 45,
+                "productId": 1
+            },
+            {
+                "stockId": 4,
+                "quantity": 67,
+                "productId": 1
+            },
+            {
+                "stockId": 17,
+                "quantity": 11,
+                "productId": 1
+            },
+            {
+                "stockId": 18,
+                "quantity": 121,
+                "productId": 1
+            },
+            {
+                "stockId": 19,
+                "quantity": 121,
+                "productId": 1
+            },
+            {
+                "stockId": 20,
+                "quantity": 121,
+                "productId": 1
+            },
+            {
+                "stockId": 21,
+                "quantity": 121,
+                "productId": 1
+            },
+            {
+                "stockId": 22,
+                "quantity": 121,
+                "productId": 1
+            }
+        ]
+    },
+    {
+        "productId": 2,
+        "productName": "Maggie",
+        "price": 15.0,
+        "brand": "Nestle",
+        "productQuantity": [
+            {
+                "stockId": 5,
+                "quantity": 4,
+                "productId": 2
+            },
+            {
+                "stockId": 6,
+                "quantity": 5,
+                "productId": 2
+            },
+            {
+                "stockId": 7,
+                "quantity": 5,
+                "productId": 2
+            },
+            {
+                "stockId": 8,
+                "quantity": 67,
+                "productId": 2
+            }
+        ]
+    },
+    {
+        "productId": 3,
+        "productName": "Mango",
+        "price": 30.0,
+        "brand": "Vendor",
+        "productQuantity": [
+            {
+                "stockId": 9,
+                "quantity": 65,
+                "productId": 3
+            },
+            {
+                "stockId": 10,
+                "quantity": 76,
+                "productId": 3
+            },
+            {
+                "stockId": 11,
+                "quantity": 45,
+                "productId": 3
+            },
+            {
+                "stockId": 12,
+                "quantity": 23,
+                "productId": 3
+            }
+        ]
+    },
+    {
+        "productId": 4,
+        "productName": "Book",
+        "price": 300.0,
+        "brand": "NCERT",
+        "productQuantity": [
+            {
+                "stockId": 13,
+                "quantity": 8,
+                "productId": 4
+            },
+            {
+                "stockId": 14,
+                "quantity": 5,
+                "productId": 4
+            }
+        ]
+    },
+    {
+        "productId": 5,
+        "productName": "Table",
+        "price": 700.0,
+        "brand": "NeelKamal",
+        "productQuantity": [
+            {
+                "stockId": 15,
+                "quantity": 6,
+                "productId": 5
+            },
+            {
+                "stockId": 16,
+                "quantity": 7,
+                "productId": 5
+            }
+        ]
+    },
+    {
+        "productId": 6,
+        "productName": "Table",
+        "price": 500.0,
+        "brand": "Lotus",
+        "productQuantity": []
+    },
+    {
+        "productId": 7,
+        "productName": "Table",
+        "price": 600.0,
+        "brand": "Lotus",
+        "productQuantity": []
+    }
+]
+
+/addOrder
+
+Request:
+   {
+        
+        "quantity": 9,
+        "productId": 1,
+        "userId": 1
+    }
+/findByCustomer
+Request:
+   {
+        
+          "userId":2,
+          "name":"Pankaj"              
+    }
+
+Response:
+[
+    {
+        "orderId": 1,
+        "quantity": 5,
+        "product": {
+            "productId": 1,
+            "productName": "Applesauce",
+            "price": 20.0,
+            "brand": "Catch",
+            "productQuantity": [
+                {
+                    "stockId": 1,
+                    "quantity": 11,
+                    "productId": 1
+                },
+                {
+                    "stockId": 2,
+                    "quantity": 2,
+                    "productId": 1
+                },
+                {
+                    "stockId": 3,
+                    "quantity": 45,
+                    "productId": 1
+                },
+                {
+                    "stockId": 4,
+                    "quantity": 67,
+                    "productId": 1
+                },
+                {
+                    "stockId": 17,
+                    "quantity": 11,
+                    "productId": 1
+                },
+                {
+                    "stockId": 18,
+                    "quantity": 121,
+                    "productId": 1
+                },
+                {
+                    "stockId": 19,
+                    "quantity": 121,
+                    "productId": 1
+                },
+                {
+                    "stockId": 20,
+                    "quantity": 121,
+                    "productId": 1
+                },
+                {
+                    "stockId": 21,
+                    "quantity": 121,
+                    "productId": 1
+                },
+                {
+                    "stockId": 22,
+                    "quantity": 121,
+                    "productId": 1
+                }
+            ]
+        },
+        "customer": {
+            "userId": 2,
+            "name": "Pankaj"
+        }
+    },
+    {
+        "orderId": 2,
+        "quantity": 6,
+        "product": {
+            "productId": 1,
+            "productName": "Applesauce",
+            "price": 20.0,
+            "brand": "Catch",
+            "productQuantity": [
+                {
+                    "stockId": 1,
+                    "quantity": 11,
+                    "productId": 1
+                },
+                {
+                    "stockId": 2,
+                    "quantity": 2,
+                    "productId": 1
+                },
+                {
+                    "stockId": 3,
+                    "quantity": 45,
+                    "productId": 1
+                },
+                {
+                    "stockId": 4,
+                    "quantity": 67,
+                    "productId": 1
+                },
+                {
+                    "stockId": 17,
+                    "quantity": 11,
+                    "productId": 1
+                },
+                {
+                    "stockId": 18,
+                    "quantity": 121,
+                    "productId": 1
+                },
+                {
+                    "stockId": 19,
+                    "quantity": 121,
+                    "productId": 1
+                },
+                {
+                    "stockId": 20,
+                    "quantity": 121,
+                    "productId": 1
+                },
+                {
+                    "stockId": 21,
+                    "quantity": 121,
+                    "productId": 1
+                },
+                {
+                    "stockId": 22,
+                    "quantity": 121,
+                    "productId": 1
+                }
+            ]
+        },
+        "customer": {
+            "userId": 2,
+            "name": "Pankaj"
+        }
+    },
+    {
+        "orderId": 3,
+        "quantity": 7,
+        "product": {
+            "productId": 2,
+            "productName": "Maggie",
+            "price": 15.0,
+            "brand": "Nestle",
+            "productQuantity": [
+                {
+                    "stockId": 5,
+                    "quantity": 4,
+                    "productId": 2
+                },
+                {
+                    "stockId": 6,
+                    "quantity": 5,
+                    "productId": 2
+                },
+                {
+                    "stockId": 7,
+                    "quantity": 5,
+                    "productId": 2
+                },
+                {
+                    "stockId": 8,
+                    "quantity": 67,
+                    "productId": 2
+                }
+            ]
+        },
+        "customer": {
+            "userId": 2,
+            "name": "Pankaj"
+        }
+    }
+]
+
+/updateSKU
+
+Request:
+{
+    "quantity": 121,
+    "productId": 1
+  
+}
+
+/searchProducts
+
+Request:
+{
+    "productId": 5,
+    "productName": null,
+    "price": 700.0,
+    "brand": "NeelKamal"
+}
+
+Response:
+[
+    {
+        "productId": 5,
+        "productName": "Table",
+        "price": 700.0,
+        "brand": "NeelKamal",
+        "productQuantity": [
+            {
+                "stockId": 15,
+                "quantity": 6,
+                "productId": 5
+            },
+            {
+                "stockId": 16,
+                "quantity": 7,
+                "productId": 5
+            }
+        ]
+    }
+]
